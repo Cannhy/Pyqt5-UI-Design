@@ -1,0 +1,81 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QAbstractItemView, QHeaderView
+
+
+class BookMark_window(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1139, 716)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(40, 60, 1051, 461))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(14)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(16)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setFamily("Consolas")
+        font.setPointSize(16)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(2, item)
+        self.addButton = QtWidgets.QPushButton(self.centralwidget)
+        self.addButton.setGeometry(QtCore.QRect(140, 550, 211, 61))
+        self.addButton.setStyleSheet(
+            'background-color: rgb(192, 192, 192);border-radius: 10px; border: 2px groove gray;border-style: outset;font: 24pt')
+        self.addButton.setObjectName("addButton")
+        self.backButton = QtWidgets.QPushButton(self.centralwidget)
+        self.backButton.setGeometry(QtCore.QRect(1010, 640, 103, 49))
+        self.backButton.setStyleSheet(
+            'background-color: rgb(192, 192, 192);border-radius: 10px; border: 2px groove gray;border-style: outset;font: 15pt')
+        self.backButton.setObjectName("backButton")
+        self.deleteButton = QtWidgets.QPushButton(self.centralwidget)
+        self.deleteButton.setGeometry(QtCore.QRect(460, 550, 201, 61))
+        self.deleteButton.setStyleSheet(
+            'background-color: rgb(192, 192, 192);border-radius: 10px; border: 2px groove gray;border-style: outset;font: 24pt')
+        self.deleteButton.setObjectName("pushButton_2")
+        self.fixButton = QtWidgets.QPushButton(self.centralwidget)
+        self.fixButton.setGeometry(QtCore.QRect(780, 550, 201, 61))
+        self.fixButton.setStyleSheet(
+            'background-color: rgb(192, 192, 192);border-radius: 10px; border: 2px groove gray;border-style: outset;font: 24pt')
+        self.fixButton.setObjectName("fixButton")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.tableWidget.horizontalHeader().setStyleSheet(
+            "QHeaderView::section{background-color:rgb(155, 194, 230);font:16pt '宋体';color: black;};")
+        self.tableWidget.verticalHeader().setStyleSheet(
+            "QHeaderView::section{background-color:rgb(155, 194, 230);font:16pt '宋体';color: black;};")
+        self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "ID"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "名称"))
+        item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "书签"))
+        self.addButton.setText(_translate("MainWindow", "添  加"))
+        self.backButton.setText(_translate("MainWindow", "返回"))
+        self.deleteButton.setText(_translate("MainWindow", "删  除"))
+        self.fixButton.setText(_translate("MainWindow", "修  改"))
